@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101321">
+<title>義務役新兵生存適應力測驗</title>
+<style>
+*{box-sizing:border-box}
+:root{color-scheme:dark}
+body{margin:0;background:#101321;color:#fff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.wrap{max-width:560px;margin:auto;padding:13px 13px 24px}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#c7c9da;letter-spacing:.12em}
+.brand{color:#c4adff;font-weight:900}
+.hero{text-align:center;padding:13px 0 15px}
+.eyebrow{font-size:9px;letter-spacing:.2em;color:#b5a1ed;margin-bottom:5px}
+h1{font-size:clamp(22px,6vw,30px);line-height:1.3;font-weight:1000;color:#f8f5ff;text-shadow:0 2px 0 #51417c;margin:0}
+.subtitle{font-size:11px;color:#c8ccdc;margin-top:5px}
+.tags{display:flex;justify-content:center;gap:6px;margin-top:9px;flex-wrap:wrap}
+.tag{font-size:9px;padding:4px 8px;border:1px solid #4f4b70;background:#24263b;border-radius:4px;color:#ded5fa}
+.panel{background:#22273d;border:1px solid #515675;border-radius:12px;box-shadow:0 8px 20px #0004}
+.inner{padding:16px}
+.muted{color:#d0d3e1}
+.label{font-size:9px;color:#b7a8e5;letter-spacing:.15em}
+.main-btn{background:linear-gradient(100deg,#765bc6,#426bb9);border:1px solid #b5a2f1;border-radius:8px;padding:12px 14px;color:white;font-size:13px;font-weight:900;width:100%;cursor:pointer}
+.sub-btn{background:#30354e;border:1px solid #666987;border-radius:8px;padding:10px 12px;color:white;font-size:11px;font-weight:800;cursor:pointer}
+button:disabled{opacity:.35;cursor:not-allowed}
+button:focus-visible{outline:3px solid #8bd7ff;outline-offset:2px}
+.rules{background:#171c2d;border:1px solid #414966;border-radius:8px;padding:12px;margin-top:13px;font-size:11px;line-height:1.8;color:#e0e2ed}
+.progress-meta{display:flex;justify-content:space-between;font-size:10px;color:#d5d7e4;margin-bottom:7px}
+.track{height:7px;background:#393e55;border-radius:20px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,#9679e6,#86d3ff,#a9e8bd);border-radius:20px;transition:width .3s}
+.qcard{margin-top:12px;padding:15px}
+.qnum{font-size:10px;color:#c1aaff;letter-spacing:.1em;font-weight:900}
+.qtitle{font-size:15px;line-height:1.65;color:#fff;font-weight:900;margin:10px 0 13px}
+.opts{display:grid;gap:7px}
+.option{width:100%;display:flex;gap:9px;align-items:flex-start;text-align:left;padding:10px;border:1px solid #555c79;border-radius:8px;background:#2c3249;color:#f3f4fa;font-size:12px;line-height:1.55;cursor:pointer}
+.option.selected{border:2px solid #b9a2ff;background:#393451;padding:9px}
+.letter{flex:0 0 23px;height:23px;display:grid;place-items:center;border-radius:5px;background:#484362;font-weight:900;color:white;font-size:11px}
+.selected .letter{background:#8b70cc}
+.nav{display:grid;grid-template-columns:94px 1fr;gap:8px;margin-top:13px}
+.result-head{text-align:center;padding:3px 0 12px}
+.result-head .icon{font-size:28px}
+.result-head h2{font-size:20px;font-weight:1000;color:#e0d5ff;margin:2px 0 0}
+.scorebox{text-align:center;padding:15px;background:#171c2e;border:1px solid #555578;border-radius:9px}
+.score{font-size:52px;font-weight:1000;line-height:1.1;color:#9bd8ff}
+.rank{font-size:17px;font-weight:1000;color:#d5c2ff;margin-top:9px}
+.rate{font-size:11px;color:#b9e7c8;margin-top:4px}
+.result-block{padding:12px;border-radius:8px;background:#292e46;border:1px solid #505775;margin-top:9px}
+.result-block h3{font-size:11px;font-weight:900;margin:0 0 5px}
+.result-block p{font-size:12px;line-height:1.7;color:#f0f1f8;margin:0}
+.summary{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.summary div{display:flex;justify-content:space-between;gap:4px;padding:8px;border-radius:6px;background:#292e46;font-size:10px;color:#e7e8f0}
+.hidden{display:none!important}
+.screen{animation:pop .22s ease}
+@keyframes pop{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-height:740px){.wrap{padding-top:8px}.hero{padding:8px 0 10px}h1{font-size:23px}.qcard{padding:12px}.qtitle{margin:7px 0 10px;font-size:14px}.option{padding:8px;font-size:11px;line-height:1.45}.option.selected{padding:7px}.opts{gap:6px}.nav{margin-top:9px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="top"><span class="brand">◆ SURVIVAL SYSTEM</span><span>VER. 1.1 MOBILE</span></div>
+ <header class="hero">
+  <div class="eyebrow">NEW RECRUIT · SPECIAL TEST</div>
+  <h1>義務役新兵生存適應力測驗</h1>
+  <div class="subtitle">你的營區生存能力，究竟可以拿下幾分？</div>
+  <div class="tags"><span class="tag">4 道情境題</span><span class="tag">即時評級</span><span class="tag">PIXEL RPG</span></div>
+ </header>
+ <section id="intro" class="panel inner screen">
+  <div class="label">MISSION START / 任務簡介</div>
+  <div style="text-align:center;margin-top:12px">
+   <div style="font-size:32px">🎖️</div>
+   <div style="font-weight:900;margin-top:8px;color:#e0d5ff;font-size:17px">歡迎來到新兵生存試煉</div>
+   <p class="muted" style="font-size:12px;line-height:1.8;margin-top:8px">突發集合、販賣機排隊、打掃勤務、放假延後……你會如何應對？完成測驗，解鎖你的新兵稱號。</p>
+  </div>
+  <div class="rules">
+   <div style="color:#9bd8ff;font-weight:900;margin-bottom:4px">▸ 測驗規則</div>
+   <div>01　共 4 題，每題選一個答案。</div>
+   <div>02　可返回上一題修改答案。</div>
+   <div>03　完成後取得專屬適應力評級。</div>
+  </div>
+  <button id="start" class="main-btn" style="margin-top:16px">▶　開始測驗</button>
+  <p style="text-align:center;margin-top:12px;font-size:9px;color:#aeb4c9">本測驗純屬娛樂，並非正式軍事評量。</p>
+ </section>
+ <section id="quiz" class="hidden screen">
+  <div class="progress-meta"><span id="step">QUESTION 01 / 04</span><span id="percent">25%</span></div>
+  <div class="track"><div id="progress" class="fill" style="width:25%"></div></div>
+  <div class="panel qcard">
+   <div id="qnum" class="qnum">MISSION 01</div>
+   <h2 id="question" class="qtitle"></h2>
+   <div id="options" class="opts"></div>
+   <div class="nav">
+    <button id="back" class="sub-btn" disabled>← 上一題</button>
+    <button id="next" class="main-btn" disabled>下一題 →</button>
+   </div>
+  </div>
+  <div style="text-align:center;margin-top:12px;font-size:9px;color:#aeb4c9">SELECT ONE ANSWER TO CONTINUE</div>
+ </section>
+ <section id="result" class="hidden screen">
+  <div class="result-head"><div class="icon">🏆</div><div class="eyebrow" style="margin-top:8px">MISSION COMPLETED</div><h2>你的測驗結果</h2></div>
+  <div class="panel inner">
+   <div class="scorebox">
+    <div class="label">YOUR SURVIVAL SCORE</div>
+    <div><span id="score" class="score">0</span><span class="muted" style="font-size:14px"> / 100</span></div>
+    <div class="track" style="margin-top:12px"><div id="scorebar" class="fill" style="width:0"></div></div>
+    <div id="rank" class="rank"></div>
+    <div class="rate">適應指數　<span id="rate"></span></div>
+   </div>
+   <div class="result-block"><h3 style="color:#9bd8ff">▸ 生存評語</h3><p id="desc"></p></div>
+   <div class="result-block"><h3 style="color:#b9e8c7">▸ 生存小提醒</h3><p id="tip"></p></div>
+   <div class="label" style="margin-top:16px">ANSWER RECORD / 作答紀錄</div>
+   <div id="summary" class="summary"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px">
+   <button id="restart" class="main-btn">↻ 重新測驗</button>
+   <button id="share" class="sub-btn">▣ 複製結果</button>
+  </div>
+  <p id="status" style="text-align:center;margin-top:9px;font-size:11px;color:#b9e8c7" aria-live="polite"></p>
+ </section>
+ <footer style="text-align:center;margin-top:18px;font-size:9px;color:#858ca5;letter-spacing:.1em">NEW RECRUIT SURVIVAL TEST · 2026</footer>
+</div>
+<script>
+(()=>{
+ const questions=[
+ ['剛入伍第一天晚上，班長突襲叫全連在走廊「集合」，而且限定 30 秒內到位，你的第一反應是？',[
+ '慌到鞋帶綁成死結，一邊衝一邊心想「這到底是三小……好想回家……」',
+ '隨手抓了 S 腰帶就往外衝，總之先跟著大部隊站好，發呆順便觀察班長有多凶。',
+ '動作迅速且衣服整齊，甚至還有空順手拉隔壁動作慢的臨兵一把。',
+ '先在床上看別人慌亂，最後 5 秒才踩著極致絲滑的步伐剛好踩線站進隊伍。']],
+ ['大熱天打靶完，班長宣布開放「10 分鐘投飲料與抽菸」，但販賣機前排了 50 個人，你會？',[
+ '算了不排了，回去灌水壺裡溫溫的白開水，坐在樹下發呆享受難得的安靜。',
+ '眼神鎖定排隊的前面同袍，果斷掏出銅板：「兄弟，幫我買瓶黑松沙士，找錢不用給！」',
+ '默默跟著排，就算最後只剩 30 秒能一口氣灌完飲料也覺得爽爆。',
+ '完全不排隊，直接走到旁邊跟班長或幹部哈拉借煙／聊水生活，順便拿到公差福利。']],
+ ['當你分到打掃勤務，結果鄰兵一直偷懶裝忙、把重活都留給你做時，你會？',[
+ '幹在心裡口難開，自己默默擦完掃完，回寢室再拿棉被蓋著偷罵。',
+ '展開「國軍開擺藝術」：拿著掃把擺出精準姿勢，開始跟旁邊的人聊天，裝得比他還忙。',
+ '直接開口笑笑地跟對方說：「欸哥們，這區你包一半啦，不然等下班長檢查大家都完蛋。」',
+ '找到班長看不見的盲區直接人間蒸發，時間到了再神不知鬼不覺地出現裝作剛掃完。']],
+ ['結訓前夕主官突然宣佈「因為個人裝備與內務保養不落實，全連本週放假全部延後兩小時（罰勤）」，你當下的心情是？',[
+ '靈魂瞬間出竅，恨不得馬上打 1985，接下來整天講話都有濃濃怨氣。',
+ '迅速切換成「入定模式」：反正遲早會放假，多留在營區發呆兩小時也能忍受。',
+ '無奈但迅速接受，開始約鄰兵等下放假一起衝去吃大餐、打幾把手遊撫慰心靈。',
+ '早就料到會有這招，內心完全毫無波動，甚至已經在腦海裡把罰勤這兩小時安排成冥想時間。']]
+ ];
+ const points=[15,45,75,90];
+ const outcomes=[
+ {max:30,name:'玻璃心菜鳥',rate:'40%',desc:'你對環境變化相當敏感，自由被剝奪時會有強烈的戒斷症狀。在營區裡容易覺得時間過得超慢。',tip:'記得「平安退伍才是真的」！試著把這段時間當作休養生息，離長官遠一點、多跟鄰兵講幹話，幾個月很快就過去了！'},
+ {max:60,name:'薪水小偷大師',rate:'95%',desc:'你擁有極強的「閃避技能」與低調生存本領。知道什麼時候該裝忙、什麼時候該隱形，絕對不會成為長官關注的焦點。',tip:'繼續保持這種「不突出、不落後、跟著大部隊走」的精髓，你的義務役生涯將會極度順遂，平安過完每一天！'},
+ {max:85,name:'營區人情世故王',rate:'85%',desc:'你情商高、隨和且懂得苦中作樂。不僅能快速適應團體生活，還能用幽默感和社交能力感染身邊的臨兵，大家都很喜歡跟你同一班。',tip:'人緣好是優勢，但也小心別因為太熱心而攬了太多苦工在身上，偶爾適度「裝傻」會讓你的兵役生活更輕鬆！'},
+ {max:100,name:'老油條薪水強者',rate:'99%',desc:'你已經修煉成精！營區的繁瑣規定和高壓環境對你來說根本是小菜一碟，甚至能精確掌握任何制度死角，過得比誰都滋潤。',tip:'能力太強容易被抓去當班長或拿來當標竿，記得偶爾裝個傻適度放水，才能真正低調平安退伍！'}
+ ];
+ const $=id=>document.getElementById(id);let index=0,answers=[-1,-1,-1,-1];
+ function show(which){['intro','quiz','result'].forEach(x=>$(x).classList.toggle('hidden',x!==which));window.scrollTo({top:0,behavior:'smooth'})}
+ function render(){
+  $('step').textContent=`QUESTION 0${index+1} / 04`;$('percent').textContent=`${(index+1)*25}%`;
+  $('progress').style.width=((index+1)*25)+'%';$('qnum').textContent=`MISSION 0${index+1}`;$('question').textContent=questions[index][0];$('options').replaceChildren();
+  questions[index][1].forEach((value,n)=>{
+   const b=document.createElement('button');b.type='button';b.className='option'+(answers[index]===n?' selected':'');b.setAttribute('aria-pressed',answers[index]===n?'true':'false');
+   const letter=document.createElement('span');letter.className='letter';letter.textContent='ABCD'[n];
+   const text=document.createElement('span');text.textContent=value;b.append(letter,text);b.addEventListener('click',()=>{answers[index]=n;render()});$('options').append(b);
+  });
+  $('back').disabled=index===0;$('next').disabled=answers[index]<0;$('next').textContent=index===3?'查看結果 →':'下一題 →';
+ }
+ function begin(){index=0;answers=[-1,-1,-1,-1];show('quiz');render()}
+ function finish(){
+  const score=Math.round(answers.reduce((sum,a)=>sum+points[a],0)/4),r=outcomes.find(x=>score<=x.max)||outcomes[3];
+  $('score').textContent='0';$('rank').textContent=r.name;$('rate').textContent=r.rate;$('desc').textContent=r.desc;$('tip').textContent=r.tip;$('scorebar').style.width=score+'%';$('summary').replaceChildren();
+  answers.forEach((a,n)=>{const row=document.createElement('div'),left=document.createElement('span'),right=document.createElement('b');left.textContent=`第${n+1}題 ${'ABCD'[a]}`;right.textContent=points[a]+'分';right.style.color='#9bd8ff';row.append(left,right);$('summary').append(row)});
+  show('result');const start=performance.now();function count(t){const p=Math.min(1,(t-start)/800);$('score').textContent=Math.round(score*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(count)}requestAnimationFrame(count);
+ }
+ $('start').addEventListener('click',begin);$('restart').addEventListener('click',begin);
+ $('back').addEventListener('click',()=>{if(index>0){index--;render()}});
+ $('next').addEventListener('click',()=>{if(answers[index]<0)return;if(index<3){index++;render();window.scrollTo({top:0,behavior:'smooth'})}else finish()});
+ $('share').addEventListener('click',async()=>{
+  const score=Math.round(answers.reduce((sum,a)=>sum+points[a],0)/4),r=outcomes.find(x=>score<=x.max)||outcomes[3];
+  const msg=`【義務役新兵生存適應力測驗】\n我的分數：${score}/100\n我的稱號：${r.name}\n適應指數：${r.rate}\n你也來測測自己的營區生存能力！\n${location.href}`;
+  try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(msg);else{const area=document.createElement('textarea');area.value=msg;area.style.position='fixed';area.style.opacity='0';document.body.append(area);area.select();if(!document.execCommand('copy'))throw Error('copy failed');area.remove()}$('status').textContent='✓ 已複製結果，可以分享給朋友！'}catch(e){$('status').textContent='無法自動複製，請截圖保存結果。'}
+ });
+})();
+</script>
+</body>
+</html>
